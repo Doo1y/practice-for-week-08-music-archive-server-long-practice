@@ -67,6 +67,12 @@ const server = http.createServer((req, res) => {
     /* ========================== ROUTE HANDLERS ========================== */
     res.setHeader("Content-Type", "application/json");
 
+    // GET /
+    if (req.method === "GET" && req.url === "/") {
+      res.statusCode = 200;
+      return res.end("This is the Home Page");
+    }
+
     // GET /artists
     if (req.method === "GET" && req.url === "/artists") {
       res.statusCode = 200;
